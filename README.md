@@ -15,15 +15,23 @@ This repository, publicly available, is my configuration for using an Alfawise U
   Thanks to Samuel Pinches for the Cura Alfawise U20 def file, that give me some ideas on "how to do".
 
 
+.
+
+
 ### extruders/alfawise_u20mix_extruder_1.def.json
 ### extruders/alfawise_u20mix_extruder_2.def.json
   These are extuders descriptions, based on some Ultimaker ones.
   
-  
+
+.
+
+
 ### plugins/PostProcessingPlugin/scripts/CreateThumbnailU20Mix.py
   A script to create a thumbnail (JPEG 180x180 picture) embedded into generated G-CODE.
   Based on Cura's CreateThumbnail.py
 
+
+.
 
 
 Hope it will helps until real manufacturer support for Cura.
