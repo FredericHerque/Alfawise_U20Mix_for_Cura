@@ -1,4 +1,4 @@
-# Alfawise_U20Mix
+# Alfawise_U20Mix_for_Cura
 
 This repository, publicly available, is my configuration for using an Alfawise U20 Mix (Weedo ME40 Pro clone) with mainstream Cura (4.8 for now). Because WiiBuilder2, custom software delivered with printer, is not good enough for advanced use.
 
