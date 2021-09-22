@@ -17,7 +17,7 @@
     },
     "overrides": {
         "machine_start_gcode": {
-			"default_value": ";(**** start.gcode for U20Mix****)\nM140 S{material_bed_temperature} ;Start heating bed\nM104 S{material_print_temperature} ;Start heating extruder\nG21 ;set units to millimetres\nG90 ;set to absolute positioning\nM82 ;set extruder in absolute mode\nM106 S0 ;set fan speed to zero (turned off)\nG28 ;home all axis\nG29 ;bed leveling\nG1 Z20 F600 ;move up head\nG1 X290 Y10 F3000 ;move bed\nM109 S{material_print_temperature} ;Wait for extruder temp\nT0\nG92 E0 ; Reset extruder 0 position\nG1 E-120 F4200\nG92 E0\nG1 E200 F300\nG92 E0\nG1 E-120 F4200\nG92 E0\nT1\nG92 E0 ; Reset extruder 1 position\nG1 E-120 F4200\nG92 E0\nG1 E200 F300\nG92 E0\nG1 E-120 F4200\nG92 E0 ; reset and lors extruder to use\nT{initial_extruder_nr}\nG92 E0\nG1 E150 F300\nG92 E0\nG1 X220 Y5 Z0.27 F4000\nG1 X60 Y5 Z0.27 E25 F1000\nG92 E0\nT{initial_extruder_nr}\nM190 S{material_bed_temperature} ;Wait for bed temp\n"
+			"default_value": ";(**** start.gcode for U20Mix****)\nM140 S{material_bed_temperature} ;Start heating bed\nM104 S{material_print_temperature} ;Start heating extruder\nG21 ;set units to millimetres\nG90 ;set to absolute positioning\nM82 ;set extruder in absolute mode\nM106 S0 ;set fan speed to zero (turned off)\nG28 ;home all axis\nG29 ;bed leveling\nG1 Z30 F600 ;move up head\nG1 X290 Y10 F3000 ;move bed\nM109 S{material_print_temperature} ;Wait for extruder temp\nT0 ;Clear extruder 0\nG92 E0\nG1 E-120 F4200 ; Remove filament 0\nG92 E0\nT1 ; Clear extruder 1\nG92 E0\nG1 E-120 F4200 ; Remove filament 1\nG92 E0\nG1 E200 F300 ; Load filament 1\nG92 E0\nG1 E-120 F4200 ; Remove filament 1\nG92 E0\nT0 ; Prepare filament 0\nG92 E0\nG1 E200 F300 ; Load filament 0\nG92 E0\nG1 E-120 F4200 ; Remove filament 0\nG92 E0\nM190 S{material_bed_temperature} ;Wait for bed temp\nT{initial_extruder_nr} ; select filament and go\nG92 E0\nG1 E150 F300\nG92 E0\nG1 X220 Y5 Z0.27 F4000\nG1 X60 Y5 Z0.27 E25 F1000\nG92 E0\nT{initial_extruder_nr}\n"
         },
         "machine_end_gcode": {
 			"default_value": "G28 X Y F3000\nG1 Y270\nM107 ; Turn off fan\n; Disable all extruder\nG91 ; Relative positioning\nG1 E-60 F4800; Reduce filament pressure\nM104 T0 S0\nG90 ; Absolute positioning\nG92 E0 ; Reset extruder position\nM140 S0 ; Disable heated bed\nM84 ; Turn steppers off"		
@@ -32,9 +32,9 @@
         "model_thumbnail":        { "default_value": true },
 		"prime_tower_enable":     { "default_value": true },
         "prime_tower_position_x": { "default_value": 50,
-                                    "value": 50 },
+                                    "value": "50" },
         "prime_tower_position_y": { "default_value": 250,
-                                    "value": 250 },
+                                    "value": "250" },
         "machine_name": 		  { "default_value": "U20Mix" },
 		"machine_nozzle_heat_up_speed": { "default_value": 5000 },
 		"retraction_amount":      { "default_value": 4.5 },
@@ -48,12 +48,12 @@
 												"value": "material_print_temperature" },
 		"switch_extruder_retraction_amount": { 
             "default_value": 120,
-            "value": 120,
+            "value": "120",
             "maximum_value_warning":200
         },
 		"switch_extruder_retraction_speed": { 
             "default_value": 70,
-            "value": 70,
+            "value": "70",
             "maximum_value":200,
             "maximum_value_warning":150
         },
@@ -63,18 +63,18 @@
 		"retraction_hop_after_extruder_switch": { "default_value": false },
 		"prime_tower_size": { "default_value": 35 },
 		"prime_tower_min_volume": { "default_value": 85 },
-        "speed_wall_0":         { "value": 25.0 },
-        "speed_wall_x":         { "value": 30.0 },
-        "speed_topbottom":      { "value": 30.0 },
-        "speed_infill":         { "value": 60.0 },
-        "speed_support_infill": { "value": 58.2 },
-        "speed_print_layer_0":  { "value": 22.0 },
-        "speed_travel_layer_0": { "value": 60   },
+        "speed_wall_0":         { "value": "25.0" },
+        "speed_wall_x":         { "value": "30.0" },
+        "speed_topbottom":      { "value": "30.0" },
+        "speed_infill":         { "value": "60.0" },
+        "speed_support_infill": { "value": "58.2" },
+        "speed_print_layer_0":  { "value": "22.0" },
+        "speed_travel_layer_0": { "value": "60"   },
         "speed_travel":         { "default_value": 80.0,
                                   "value": "speed_print if magic_spiralize else 80" },
-        "speed_support_roof":   { "value": 46.5 },
+        "speed_support_roof":   { "value": "46.5" },
         "speed_support_bottom": { "dvalue": 46.5 },
-        "speed_roofing":        { "value": 25.0 },
+        "speed_roofing":        { "value": "25.0" },
 
         "gantry_height":        { "value": "10" },
         "material_diameter":    { "default_value": 1.75 },
