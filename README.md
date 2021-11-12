@@ -14,6 +14,9 @@ This repository, publicly available, is my configuration for using an Alfawise U
   This is printer description, with good start & stop g-code (alfawise software based).
   Thanks to Samuel Pinches for the Cura Alfawise U20 def file, that give me some ideas on "how to do".
 
+### definitions/alfawise_u20mix_solo.def.json
+  Same printer definition but with ONLY left extruder used.
+  Start & stop g-code stay compatible with filament extrusion norms, so can mix easily mono or bifilament prints.
 
 .
 
